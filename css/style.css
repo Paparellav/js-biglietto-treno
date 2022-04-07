@@ -1,0 +1,21 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+}
+
+.container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: greenyellow;
+}
+
+h1:hover {  
+    text-transform: uppercase;
+    border: 3px solid greenyellow;
+    padding: 1rem 1rem;
+}
