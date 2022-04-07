@@ -1,10 +1,10 @@
 // DICHIARAZIONE DEI DATI UTENTE
 //Chiedere all'utente il numero dei km da percorrere
-const percorsoUtente = parseInt(prompt('Quanti km devi percorrere?'));
+const percorsoUtente = prompt('Quanti km devi percorrere?');
 console.log(percorsoUtente);
 
 //Chiedere all'utente il numero dell'età
-const etaUtente = parseInt(prompt('Quanti anni hai?'));
+const etaUtente = prompt('Quanti anni hai?');
 console.log(etaUtente);
 
 // ELABORAZIONE DATI
@@ -12,26 +12,23 @@ console.log(etaUtente);
 const prezzoBiglietto = 0.21 * percorsoUtente;
 console.log(prezzoBiglietto);
 
-//Calcolo discount under 18
-const scontoMinore = (prezzoBiglietto * 20) / 100;
-console.log(scontoMinore);
-
-//Calcolo discount over 65
-const scontoOver = (prezzoBiglietto * 40) / 100;
-console.log(scontoOver);
+let sconto;
 
 // CONDIZIONE IF ELSE PAGAMENTO
-let finalPrice
+let finalPrice;
 
 if (etaUtente < 18) {
-    finalPrice = prezzoBiglietto - scontoMinore;
+    sconto = (prezzoBiglietto * 20) / 100;
 } else if (etaUtente >= 65) {
-    finalPrice = prezzoBiglietto - scontoOver;
+    sconto = (prezzoBiglietto * 40) / 100;
 } else {
-    finalPrice = prezzoBiglietto
+    sconto = 0;
 }
+
+finalPrice = prezzoBiglietto - sconto;
 
 console.log(finalPrice);
 
 // Output stampato nel browser
-document.getElementById('final-price').innerHTML = `Il prezzo del tuo biglietto è ${finalPrice}€`;
+const printPrice = finalPrice.toFixed(2);
+document.getElementById('final-price').innerHTML = `Il prezzo del tuo biglietto è ${printPrice}€`;
